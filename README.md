@@ -12,6 +12,10 @@ To deploy script in an online server so that it automatically execute script dai
 
 <hr>
 
+Note: in both variable storage, Variable Name is "lastNews" and it's default data type is [] which is empty list !
+
+
+<hr>
 
 
 ## TeleNews repo:-
