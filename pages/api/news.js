@@ -20,14 +20,19 @@ const getNews = async () => {
 export default async function handler(req, res) {
   try {
     const token = process.env.token; //tg bot token here
-    const chatId = "pvxtechnews";
+    const chatId = "@pvxtechnews";
     const kryptonId = 649341653;
 
     const botTG = new TelegramBot(token, { polling: false });
+    console.log("Fetching tech news...");
     const message = await getNews();
+    console.log(message);
 
-    botTG.sendMessage(chatId, message);
-    res.status(200).json({ name: "news posted!" });
+    console.log("Posting news to TG channel...");
+    await botTG.sendMessage(chatId, message);
+    console.log("Tech news posted.");
+
+    res.status(200).json({ news: message });
   } catch (error) {
     console.log(error);
     res.status(200).json({ name: error.toString() });
