@@ -26,7 +26,7 @@ export default async function handler(req, res) {
     const botTG = new TelegramBot(token, { polling: false });
     const message = await getNews();
 
-    botTG.sendMessage(kryptonId, message);
+    botTG.sendMessage(chatId, message);
     res.status(200).json({ name: "news posted!" });
   } catch (error) {
     console.log(error);
