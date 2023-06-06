@@ -35,6 +35,6 @@ export default async function handler(req, res) {
     res.status(200).json({ news: message });
   } catch (error) {
     console.log(error);
-    res.status(200).json({ name: error.toString() });
+    res.status(200).json({ news: error.toString() });
   }
 }
